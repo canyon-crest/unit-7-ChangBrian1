@@ -102,12 +102,11 @@ public class Unit7 {
     // Instructions: Shuffle the elements randomly by swapping them manually.
     // DO NOT use the Collections.shuffle() or other methods beyond size(), add(), get(), set(), and remove().
     public static void shuffleList(ArrayList<Integer> list) {
-    	int temp;
     	for(int i = 0; i<list.size(); i++) {
-    		temp = list.get(i);
-    		list.set(i, list.get((int)(Math.random()*(list.size()))));
-    		list.set((int)(Math.random()*(list.size())), temp);
-    		list.add(5);
+    		int indexToSwap=(int)(Math.random()*(list.size()-i))+i;
+    		int temp = list.get(i);
+    		list.set(i, list.get(indexToSwap));
+    		list.set(indexToSwap,  temp);
 
     	}
     	
