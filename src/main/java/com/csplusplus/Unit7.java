@@ -107,7 +107,7 @@ public class Unit7 {
     		temp = list.get(i);
     		list.set(i, list.get((int)(Math.random()*(list.size()))));
     		list.set((int)(Math.random()*(list.size())), temp);
-    		
+    		list.add(5);
 
     	}
     	
