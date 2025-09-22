@@ -9,13 +9,23 @@ public class Unit7 {
     // DO NOT use the Collections class or any additional methods beyond size(), add(), get(), set(), and remove().
     public static int sumOfElements(ArrayList<Integer> list) {
         // TODO: Implement this method
-        return 0;  // Placeholder return value
+    	int sum=0;
+    	for(int i = 0; i<list.size(); i++) {
+    		sum+=list.get(i);
+    	}
+        return sum;  // Placeholder return value
     }
 
     // 2. Method that removes all instances of a specific element from the ArrayList
     // Instructions: Use a loop to remove all instances of the specified element.
     // DO NOT use removeIf(), Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static void removeAllInstances(ArrayList<Integer> list, int elementToRemove) {
+    	for(int i = 0; i<list.size(); i++) {
+    		if(list.get(i)==elementToRemove) {
+    			list.remove(i);
+    			i--;
+    		}
+    	}
         // TODO: Implement this method
     }
 
@@ -23,6 +33,11 @@ public class Unit7 {
     // Instructions: Multiply each element by 2 and update the list in place.
     // DO NOT use Collections or other methods beyond size(), add(), get(), set(), and remove().
     public static void doubleAllElements(ArrayList<Integer> list) {
+    	int p;
+    	for(int i = 0; i<list.size(); i++) {
+    		p = list.get(i)*2;
+    		list.set(i, p);
+    	}
         // TODO: Implement this method
     }
 
@@ -30,6 +45,16 @@ public class Unit7 {
     // Instructions: Check manually if the element is already present before adding.
     // DO NOT use contains(), Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static void addIfNotPresent(ArrayList<Integer> list, int newElement) {
+    	boolean present = false;
+    	for(int i = 0; i<list.size(); i++) {
+    		if(list.get(i) == newElement) {
+    			present = true;
+    		}
+    	}
+    	if(!present) {
+    		list.add(newElement);
+    		
+    	}
         // TODO: Implement this method
     }
 
@@ -37,14 +62,26 @@ public class Unit7 {
     // Instructions: Create a new list and manually collect the even elements.
     // DO NOT use streams, Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static ArrayList<Integer> getEvenElements(ArrayList<Integer> list) {
+    	ArrayList<Integer> evenList = new ArrayList<Integer>();
+    	for(int i = 0; i<list.size(); i++) {
+    		if(list.get(i)%2==0) {
+    			evenList.add(list.get(i));
+    		}
+    	}
         // TODO: Implement this method
-        return null;  // Placeholder return value
+        return evenList;  // Placeholder return value
     }
 
     // 6. Method that removes elements divisible by 5
     // Instructions: Use a loop to remove all elements divisible by 5.
     // DO NOT use removeIf(), Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static void removeElementsDivisibleBy5(ArrayList<Integer> list) {
+    	for(int i = 0; i<list.size(); i++) {
+    		if(list.get(i)%5==0) {
+    			list.remove(i);
+    			i--;
+    		}
+    	}
         // TODO: Implement this method
     }
 
@@ -52,6 +89,12 @@ public class Unit7 {
     // Instructions: Reverse the order of the elements by swapping them manually.
     // DO NOT use Collections or other methods beyond size(), add(), get(), set(), and remove().
     public static void reverseList(ArrayList<Integer> list) {
+    	int temp;
+    	for(int i = 0; i<list.size()/2; i++) {
+    		temp = list.get(i);
+    		list.set(i, list.get(list.size()-i-1));
+    		list.set(list.size()-i-1, temp);
+    	}
         // TODO: Implement this method
     }
 
@@ -59,6 +102,15 @@ public class Unit7 {
     // Instructions: Shuffle the elements randomly by swapping them manually.
     // DO NOT use the Collections.shuffle() or other methods beyond size(), add(), get(), set(), and remove().
     public static void shuffleList(ArrayList<Integer> list) {
+    	int temp;
+    	for(int i = 0; i<list.size(); i++) {
+    		temp = list.get(i);
+    		list.set(i, list.get((int)(Math.random()*(list.size()))));
+    		list.set((int)(Math.random()*(list.size())), temp);
+    		
+
+    	}
+    	
         // TODO: Implement this method
     }
 }
